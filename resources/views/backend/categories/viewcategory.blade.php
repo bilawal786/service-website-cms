@@ -33,7 +33,7 @@
                                              src="{{ asset($category->image) }}"
                                     </div>
                                     <div class="form-group mt-5">
-                                        <label for="">Related Projects</label>
+                                        <label for="">Related Project</label>
                                         <ul>
                                             @foreach($category->projects as $project)
                                                 <li><h4>{{$project->name}}</h4></li>
