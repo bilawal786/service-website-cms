@@ -36,7 +36,7 @@
                                         <label for="">Related Services</label>
                                         <ul>
                                             @foreach($category->projects as $project)
-                                                <li><h4>{{$project->name}}</h4></li>
+                                                <li><h4>{{$project->name}} abc</h4></li>
                                             @endforeach
                                         </ul>
                                     </div>
