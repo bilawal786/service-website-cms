@@ -101,7 +101,7 @@
                  ?>
                  <div class="form-group">
                     <label for="">Select Category</label>
-                    <select class="form-control select2" name="categoryid" >
+                    <select class="form-control" name="categoryid" >
                         @foreach ($categories as $category)
                         <option value="{{$category->id}}" {{in_array($category->id,$categoryids) ? 'selected' : ''}}>{{$category->name}}</option>
                         @endforeach
@@ -113,7 +113,7 @@
                     ?>
                     <div class="form-group">
                         <label for="">Select Service</label>
-                        <select class="form-control select2" name="serviceid" >
+                        <select class="form-control" name="serviceid" >
                             @foreach ($services as $service)
                                 <option value="{{$service->id}}" {{in_array($service->id,$serviceids) ? 'selected' : ''}}>{{$service->name}}</option>
                             @endforeach

@@ -128,7 +128,6 @@ class ProjectController extends Controller
      */
     public function edit(Request $request,$id)
     {
-
         $project = Project::find($id);
         return view('backend.projects.editproject',compact('project'));
     }

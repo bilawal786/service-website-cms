@@ -30,6 +30,8 @@ Route::post('updateservice/{id}','Backend\ServicesController@updateservice')->na
 Route::get('service-details/{id}','Frontend\FrontendController@servicedetails')->name('service.details');
 Route::resource('/project', 'Backend\ProjectController');
 Route::get('/project-details/{id}','Frontend\FrontendController@projectdetails')->name('project.details');
+Route::resource('/estimate','Backend\EstimateController');
+Route::post('getservices','Backend\EstimateController@ajax');
 
 Auth::routes();
 

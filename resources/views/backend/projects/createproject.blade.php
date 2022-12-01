@@ -90,7 +90,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">Select Category</label>
-                                        <select class="form-control select2" name="categoryid">
+                                        <select class="form-control" name="categoryid">
                                             @foreach ($categories as $category)
                                                 <option value="{{$category->id}}">{{$category->name}}</option>
                                             @endforeach
@@ -98,7 +98,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">Select Service</label>
-                                        <select class="form-control select2" name="serviceid">
+                                        <select class="form-control" name="serviceid">
                                             @foreach ($services as $service)
                                                 <option value="{{$service->id}}">{{$service->name}}</option>
                                             @endforeach

@@ -30,7 +30,7 @@
                                         <div class="input-group">
                                         </div>
                                         <img style="height:90px;width:120px" class="mt-1"
-                                             src="{{ asset($category->image) }}"
+                                             src="{{ asset($category->image) }}">
                                     </div>
                                     <div class="form-group mt-5">
                                         <label for="">Related Projects</label>
