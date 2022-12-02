@@ -16,7 +16,8 @@ class EstimateController extends Controller
      */
     public function index()
     {
-        return view('backend.estimates.estimate');
+        $estimates = Estimate::all();
+        return view('backend.estimates.estimates', compact('estimates'));
     }
 
 
@@ -33,7 +34,7 @@ class EstimateController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.estimates.createestimate');
     }
 
     /**
@@ -86,9 +87,10 @@ class EstimateController extends Controller
      * @param  \App\Estimate  $estimate
      * @return \Illuminate\Http\Response
      */
-    public function show(Estimate $estimate)
+    public function show($id)
     {
-        //
+        $estimate = Estimate::find($id);
+        return view('backend.estimates.showestimate',compact('estimate'));
     }
 
     /**
@@ -97,9 +99,10 @@ class EstimateController extends Controller
      * @param  \App\Estimate  $estimate
      * @return \Illuminate\Http\Response
      */
-    public function edit(Estimate $estimate)
+    public function edit($id)
     {
-        //
+        $estimate = Estimate::find($id);
+        return view('backend.estimates.editestimate',compact('estimate'));
     }
 
     /**

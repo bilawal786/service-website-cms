@@ -12,5 +12,8 @@ class Category extends Model
     public function projects(){
         return $this->hasMany(Project::class,'categoryid');
     }
+    public function estimates(){
+        return $this->hasMany(Estimate::class,'categoryid');
+    }
 
 }

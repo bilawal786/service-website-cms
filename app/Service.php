@@ -12,4 +12,7 @@ class Service extends Model
     public function projects(){
         return $this->hasMany(Project::class,'serviceid');
     }
+    public function estimates(){
+        return $this->hasMany(Estimate::class,'serviceid');
+    }
 }
