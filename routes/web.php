@@ -32,6 +32,8 @@ Route::resource('/project', 'Backend\ProjectController');
 Route::get('/project-details/{id}','Frontend\FrontendController@projectdetails')->name('project.details');
 Route::resource('/estimate','Backend\EstimateController');
 Route::post('getservices','Backend\EstimateController@ajax');
+Route::get('/estimate/print/{id}', 'Backend\EstimateController@print')->name('print');
+Route::get('invoice-print/{id}','Backend\EstimateController@invoiceprint')->name('print.invoice');
 
 Auth::routes();
 

@@ -65,6 +65,8 @@
                                                 </form>
                                                 <a href="{{url('estimate')}}/{{$estimate->id}}"
                                                    class="btn btn-info">Details</a>
+                                                <a href="{{url('estimate')}}/{{'print'}}/{{$estimate->id}}"
+                                                   class="btn btn-warning">Print</a>
                                             </td>
                                         </tr>
                                     @empty

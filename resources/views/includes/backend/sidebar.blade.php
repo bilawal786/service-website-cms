@@ -76,7 +76,7 @@
                 </a>
               </li>
                 <li class="nav-item">
-                    <a href="{{route('estimate.index')}}" class="nav-link {{Route::is('') ? 'active' : ''}}">
+                    <a href="{{route('estimate.index')}}" class="nav-link {{Route::is('estimate*') ? 'active' : ''}}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Estimates</p>
                     </a>

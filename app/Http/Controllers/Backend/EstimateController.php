@@ -48,9 +48,6 @@ class EstimateController extends Controller
         $estimate = new Estimate();
         $estimate->categoryid = $request->categoryid;
         $estimate->serviceid = $request->serviceid;
-//        $estimate->item = $request->item;
-//        $estimate->price = $request->price;
-//        $estimate->quantity = $request->quantity;
         $estimate->description = $request->description;
         $estimate->date= $request->date;
         $items = array();
@@ -78,7 +75,7 @@ class EstimateController extends Controller
             $estimate->quantity = $im_quantities;
         }
         $estimate->save();
-        return redirect('estimate');
+        return redirect('estimate')->with('success','Estimate Created Successfully');
     }
 
     /**
@@ -112,9 +109,39 @@ class EstimateController extends Controller
      * @param  \App\Estimate  $estimate
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Estimate $estimate)
+    public function update(Request $request, $id)
     {
-        //
+        $estimate = Estimate::find($id);
+        $estimate->categoryid = $request->categoryid;
+        $estimate->serviceid = $request->serviceid;
+        $estimate->description = $request->description;
+        $estimate->date= $request->date;
+        $items = array();
+        if($itemnames = $request->item){
+            foreach($itemnames as $itemname){
+                $items[] = $itemname;
+            }
+            $im_items = implode(',', $items);
+            $estimate->item = $im_items;
+        }
+        $prices = array();
+        if($itemprices = $request->price){
+            foreach($itemprices as $itemprice){
+                $prices[] = $itemprice;
+            }
+            $im_prices = implode(',', $prices);
+            $estimate->price = $im_prices;
+        }
+        $quantities = array();
+        if($itemquantities = $request->quantity){
+            foreach($itemquantities as $itemquantity){
+                $quantities[] = $itemquantity;
+            }
+            $im_quantities = implode(',', $quantities);
+            $estimate->quantity = $im_quantities;
+        }
+        $estimate->save();
+        return redirect('estimate')->with('success','Estimate Updated Successfully');
     }
 
     /**
@@ -123,8 +150,18 @@ class EstimateController extends Controller
      * @param  \App\Estimate  $estimate
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Estimate $estimate)
+    public function destroy($id)
     {
-        //
+        $estimate = Estimate::find($id);
+        $estimate->delete();
+        return redirect('estimate')->with('danger','Estimate Deleted Successfully');
+    }
+    public function print($id){
+        $estimate = Estimate::find($id);
+        return view('backend.estimates.invoice', compact('estimate'));
+    }
+    public function invoiceprint($id){
+        $estimate = Estimate::find($id);
+        return view('backend.estimates.invoiceprint', compact('estimate'));
     }
 }

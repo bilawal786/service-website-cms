@@ -18,6 +18,7 @@
                             <!-- form start -->
                             <form action="{{route('estimate.update',$estimate->id)}}" method="post"
                                   enctype="multipart/form-data">
+                                @method('PUT')
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
@@ -36,7 +37,7 @@
                                     <div class="form-group">
                                         <label for="">Select Service</label>
                                         <select class="form-control" id="serviceid" name="serviceid">
-                                            <option selected>{{$estimate->service->name}}</option>
+                                            <option value="{{$estimate->serviceid}}" selected>{{$estimate->service->name}}</option>
                                         </select>
                                     </div>
                                     <div class="field_wrapper">
