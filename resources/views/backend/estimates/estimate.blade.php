@@ -125,7 +125,7 @@
             var maxField = 10;
             var addButton = $('.add_button');
             var wrapper = $('.field_wrapper');
-            var fieldHTML = '<div class="row"><div class="col-3"><label for="">Item</label><input type="text" class="form-control" id="item" value="" name="item[]"></div><div class="col-2"><label for="">Price</label><input type="number" class="form-control" id="price" value=""name="price[]"></div><div class="col-2"><label for="">Quantity</label><input type="number" class="form-control" id="quantity" value=""name="quantity[]"></div><a href="javascript:void(0);" class="btn btn-danger mt-4 remove_button">Remove</a> </div>'; //New input field html
+            var fieldHTML = '<div class="row"><div class="col-3"><label for="">Item</label><input type="text" class="form-control" id="item" value="" name="item[]"></div><div class="col-2"><label for="">Price</label><input type="number" class="form-control" id="price" value=""name="price[]"></div><div class="col-2"><label for="">Quantity</label><input type="number" class="form-control" id="quantity" value=""name="quantity[]"></div><a href="javascript:void(0);" class="btn btn-danger mt-4 remove_button">Remove</a> </div>';
             var x = 1;
             $(addButton).click(function () {
                 if (x < maxField) {

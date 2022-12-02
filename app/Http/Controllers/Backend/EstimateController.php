@@ -47,13 +47,37 @@ class EstimateController extends Controller
         $estimate = new Estimate();
         $estimate->categoryid = $request->categoryid;
         $estimate->serviceid = $request->serviceid;
-        $estimate->item = $request->item;
-        $estimate->price = $request->price;
-        $estimate->quantity = $request->quantity;
+//        $estimate->item = $request->item;
+//        $estimate->price = $request->price;
+//        $estimate->quantity = $request->quantity;
         $estimate->description = $request->description;
         $estimate->date= $request->date;
+        $items = array();
+        if($itemnames = $request->item){
+            foreach($itemnames as $itemname){
+                $items[] = $itemname;
+            }
+            $im_items = implode(',', $items);
+            $estimate->item = $im_items;
+        }
+        $prices = array();
+        if($itemprices = $request->price){
+            foreach($itemprices as $itemprice){
+                $prices[] = $itemprice;
+            }
+            $im_prices = implode(',', $prices);
+            $estimate->price = $im_prices;
+        }
+        $quantities = array();
+        if($itemquantities = $request->quantity){
+            foreach($itemquantities as $itemquantity){
+                $quantities[] = $itemquantity;
+            }
+            $im_quantities = implode(',', $quantities);
+            $estimate->quantity = $im_quantities;
+        }
         $estimate->save();
-        return redirect('estimate.index');
+        return redirect('estimate');
     }
 
     /**
