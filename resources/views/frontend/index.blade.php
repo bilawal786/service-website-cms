@@ -4,7 +4,6 @@
 
 
 <?php
-$services = App\Service::all();
 $projects = App\Project::all();
 ?>
 

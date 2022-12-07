@@ -28,16 +28,11 @@
                         <ul>
                             <li class="menu-item"><a href="{{route('front.index')}}">Home</a>
                             </li>
-                            <li class="menu-item"><a href="#services_section">Services</a>
+                            <li class="menu-item"><a href="{{route('front.index')}}#services_section">Services</a>
                             </li>
-                            <li class="menu-item"><a href="#portfolio_section">Portfolio</a>
+                            <li class="menu-item"><a href="{{route('front.index')}}#portfolio_section">Portfolio</a>
                             </li>
-                            <li class="menu-item has-children"><a href="#" class="nav-link">Pages</a>
-                                <ul class="sub-menu">
-                                    <li><a href="{{route('front.about')}}">About Us</a></li>
-                                    <li><a href="team.html">Our Team</a></li>
-                                    <li><a href="team-details.html">Team Details</a></li>
-                                </ul>
+                            <li class="menu-item"><a href="{{route('front.about')}}" class="nav-link">About Us</a>
                             </li>
                             <li class="menu-item has-children"><a href="#" class="nav-link">Blog</a>
                                 <ul class="sub-menu">

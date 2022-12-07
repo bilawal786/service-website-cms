@@ -131,10 +131,12 @@ class ServicesController extends Controller
         $otherimages = array();
         if ($files = $request->file('otherimages')) {
             //code to remove old otherimages
+            if($service->otherimages){
             $im_images = $service->otherimages;
             $images = explode(',', $im_images);
             foreach ($images as $image) {
                 unlink($image);
+            }
             }
 
             foreach ($files as $file) {

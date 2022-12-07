@@ -16,3 +16,5 @@ class Service extends Model
         return $this->hasMany(Estimate::class,'serviceid');
     }
 }
+
+

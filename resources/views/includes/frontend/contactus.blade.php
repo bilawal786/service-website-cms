@@ -15,7 +15,7 @@
                                     <span><i class="far fa-envelope-open"></i>Email Us</span>
                                 </div>
                                 <div class="info">
-                                    <h4><a href="mailto:support@gmail.com">support@gmail.com</a></h4>
+                                    <h4><a href="mailto:{{$settings->email2}}">{{$settings->email2}}</a></h4>
                                 </div>
                             </div>
                         </div>
@@ -25,32 +25,34 @@
                                     <span><i class="far fa-phone"></i>Phone Us</span>
                                 </div>
                                 <div class="info">
-                                    <h4><a href="tel:+0123456789">+012 (345) 67 89</a></h4>
+                                    <h4><a href="{{$settings->number1}}">{{$settings->number1}}</a></h4>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="contact-form">
-                        <form>
+                        <form action="{{route('email.query')}}" method="post">
+                            @csrf
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form_group">
-                                        <input type="text" class="form_control" placeholder="Full Name" name="name" required>
+                                        <input type="text" class="form_control" placeholder="Full Name" id="name" name="name" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form_group">
-                                        <input type="email" class="form_control" placeholder="Email Address" name="email" required>
+                                        <input type="email" class="form_control" placeholder="Email Address" id="email" name="email" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form_group">
-                                        <textarea class="form_control" placeholder="Write Message" name="message"></textarea>
+                                        <textarea class="form_control" placeholder="Write Message" id="message" name="message"></textarea>
                                     </div>
                                 </div>
+                                <input type="hidden" name="adminemail" value="{{$settings->email2}}">
                                 <div class="col-lg-12">
                                     <div class="form_group">
-                                        <button class="main-btn arrow-btn">Send Us Message</button>
+                                        <input type="submit" class="main-btn arrow-btn" value="Send Us Message">
                                     </div>
                                 </div>
                             </div>

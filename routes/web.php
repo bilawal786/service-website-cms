@@ -34,6 +34,10 @@ Route::resource('/estimate','Backend\EstimateController');
 Route::post('getservices','Backend\EstimateController@ajax');
 Route::get('/estimate/print/{id}', 'Backend\EstimateController@print')->name('print');
 Route::get('invoice-print/{id}','Backend\EstimateController@invoiceprint')->name('print.invoice');
+Route::post('email-query','Frontend\FrontendController@emailquery')->name('email.query');
+Route::post('email-queryservice','Frontend\FrontendController@emailqueryservice')->name('email.queryservice');
+Route::resource('/queries','Backend\QueryController');
+Route::post('updatequerystatus','Backend\QueryController@querystatus');
 
 Auth::routes();
 

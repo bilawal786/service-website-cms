@@ -1,5 +1,5 @@
   <!--====== Start About Section ======-->
-  <section class="about-area about-area-v1 position-relative pt-130">
+  <section id="" class="about-area about-area-v1 position-relative pt-130">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
