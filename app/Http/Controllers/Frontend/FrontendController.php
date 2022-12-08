@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Blog;
 use App\Query;
 use App\Setting;
 use App\Service;
@@ -73,6 +74,11 @@ class FrontendController extends Controller
         $query->save();
         $serviceid = $request->serviceid;
         return redirect('service-details/'.$serviceid );
+    }
+
+    public function blogdetails($id){
+        $blog = Blog::find($id);
+        return view('frontend.blogdetails',compact('blog'));
     }
 
 }

@@ -22,7 +22,6 @@
                                   enctype="multipart/form-data">
                                 @method('PUT')
                                 @csrf
-
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="">Project Name</label>

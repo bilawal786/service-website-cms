@@ -94,6 +94,13 @@
                                 <p>Queries</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('blogs.index')}}"
+                               class="nav-link {{Route::is('blogs*') ? 'active' : ''}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Blogs</p>
+                            </a>
+                        </li>
                     </ul>
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link"

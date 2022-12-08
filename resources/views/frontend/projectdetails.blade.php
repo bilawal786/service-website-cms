@@ -1,4 +1,4 @@
-@extends('layouts.frontapp');
+@extends('layouts.frontapp')
 @section('title','Project Details')
 @section('section')
 

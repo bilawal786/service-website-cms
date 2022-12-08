@@ -34,11 +34,7 @@
                             </li>
                             <li class="menu-item"><a href="{{route('front.about')}}" class="nav-link">About Us</a>
                             </li>
-                            <li class="menu-item has-children"><a href="#" class="nav-link">Blog</a>
-                                <ul class="sub-menu">
-                                    <li><a href="blogs.html">Our Blog</a></li>
-                                    <li><a href="blog-details.html">Blog Details</a></li>
-                                </ul>
+                            <li class="menu-item"><a href="{{route('front.index')}}#blogs_section" class="nav-link">Blogs</a>
                             </li>
                             <li class="menu-item"><a href="{{route('front.contact')}}" class="nav-link">Contact</a></li>
 

@@ -15,5 +15,8 @@ class Category extends Model
     public function estimates(){
         return $this->hasMany(Estimate::class,'categoryid');
     }
+    public function blogs(){
+        return $his->hasMany(Blog::class,'categoryid');
+    }
 
 }

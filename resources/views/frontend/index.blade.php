@@ -5,6 +5,7 @@
 
 <?php
 $projects = App\Project::all();
+$blogs = App\Blog::all();
 ?>
 
     @include('includes.frontend.herosection')

@@ -38,6 +38,9 @@ Route::post('email-query','Frontend\FrontendController@emailquery')->name('email
 Route::post('email-queryservice','Frontend\FrontendController@emailqueryservice')->name('email.queryservice');
 Route::resource('/queries','Backend\QueryController');
 Route::post('updatequerystatus','Backend\QueryController@querystatus');
+Route::post('searchbydate','Backend\QueryController@datesearch')->name('search.bydate');
+Route::resource('/blogs','Backend\BlogController');
+Route::get('/blog-details/{id}','Frontend\FrontendController@blogdetails')->name('blog.details');
 
 Auth::routes();
 

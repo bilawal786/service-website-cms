@@ -54,7 +54,7 @@
                      <tr>
                         <td>{{$loop->index+1}}</td>
                         <td>{{$category->name}}</td>
-                        <td><img style="height:70px;width:90px" src="{{ asset($category->image) }}" </td>
+                        <td><img style="height:70px;width:90px" src="{{ asset($category->image) }}"</td>
                         <td>
                             <a href="{{url('category')}}/{{$category->id}}/edit" class="btn btn-primary">Edit</a>
                             <form action="{{url('category')}}/{{$category->id}}" method="post" style="display: inline-block">

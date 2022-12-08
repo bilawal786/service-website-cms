@@ -27,6 +27,12 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Queries Data</h3>
+                                <form action="{{route('search.bydate')}}" method="post">
+                                    @csrf
+                                <p class="text-right mr-5"> <label for="">Search by Date</label>
+                                <input type="date" name="searchdate" id="searchdate">
+                                    <input class="btn btn-sm btn-primary" type="submit" value="search"></p>
+                                </form>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -64,12 +70,22 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <select onchange="getVal(this,{{$query->id}})" class="mr-2" id="status" name="status">
-                                                    <option value="0" {{$query->status == 0 ? 'selected' : ''}}>Active</option>
-                                                    <option value="1" {{$query->status == 1 ? 'selected' : ''}}>Complete</option>
-                                                    <option value="2" {{$query->status == 2 ? 'selected' : ''}}>In Process</option>
-                                                    <option value="3" {{$query->status == 3 ? 'selected' : ''}}>Pending</option>
-                                                    <option value="4" {{$query->status == 4 ? 'selected' : ''}}>Cancel</option>
+                                                <select onchange="getVal(this,{{$query->id}})" class="mr-2 toastsDefaultAutohide" id="status"
+                                                        name="status">
+                                                    <option value="0" {{$query->status == 0 ? 'selected' : ''}}>Active
+                                                    </option>
+                                                    <option value="1" {{$query->status == 1 ? 'selected' : ''}}>
+                                                        Complete
+                                                    </option>
+                                                    <option value="2" {{$query->status == 2 ? 'selected' : ''}}>In
+                                                        Process
+                                                    </option>
+                                                    <option value="3" {{$query->status == 3 ? 'selected' : ''}}>
+                                                        Pending
+                                                    </option>
+                                                    <option value="4" {{$query->status == 4 ? 'selected' : ''}}>
+                                                        Cancel
+                                                    </option>
                                                 </select>
                                             </td>
                                         </tr>
@@ -97,26 +113,44 @@
 
 
     <script>
-        function getVal(item,id){
-            const statusValues = ["Active","Complete","In Process","Pending","Cancel"];
-            $("#querystatus"+id).html(statusValues[parseInt(item.value)]);
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                });
-                let ourUrl = "{{url('updatequerystatus')}}";
-                $.ajax({
-                    url: ourUrl,
-                    method: "POST",
-                    data: {
-                        status: item.value,
-                        queryid: id
-                    },
-                    success: function (response) {
-                    }
-                });
+        function getVal(item, id) {
+            const statusValues = ["Active", "Complete", "In Process", "Pending", "Canceled"];
+            $("#querystatus" + id).html(statusValues[(item.value)]);
+            // alert(statusValues[parseInt(item.value)]);
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+            });
+            let ourUrl = "{{url('updatequerystatus')}}";
+            $.ajax({
+                url: ourUrl,
+                method: "POST",
+                data: {
+                    status: item.value,
+                    queryid: id
+                },
+                success: function (response) {
+                    $(document).Toasts('create', {
+                        title: 'Updated',
+                        class: 'bg-success',
+                        autohide: true,
+                        delay: 3000,
+                        body: 'Query Status Changed Successfully.'
+                    })
+                },
+                error: function (){
+                    $(document).Toasts('create', {
+                        title: 'Updated',
+                        class: 'bg-danger',
+                        autohide: true,
+                        delay: 3000,
+                        body: 'Query Status Changed Successfully.'
+                    })
+                }
+            });
         }
+
     </script>
 
 @endsection

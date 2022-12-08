@@ -32,6 +32,18 @@ class QueryController extends Controller
         $query->save();
         return compact('query');
     }
+
+    public  function datesearch(Request $request){
+        if($request->searchdate){
+        $searchdate = $request->searchdate;
+        $queries = Query::whereDate('created_at', '=', $searchdate)->orderBy('id','desc')->get();
+        return view('backend.queries.queries',compact('queries'));
+        }else{
+            $queries = Query::orderBy('id','desc')->get();
+            return view('backend.queries.queries',compact('queries'));
+        }
+    }
+
     public function create()
     {
         //

@@ -1,57 +1,39 @@
- <!--====== Start Blog Section ======-->
- <section class="blog-area blog-area-v1 light-gray-bg pt-130 pb-130">
+<!--====== Start Blog Section ======-->
+<section id="blogs_section" class="blog-area-v3 pt-30 pb-90">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6">
-                <div class="section-title text-center mb-55 wow fadeInUp" data-wow-delay=".2s">
-                    <span class="sub-title st-one">Articles News</span>
-                    <h2>Latest News & Blogs</h2>
-                    <p>Professional Design Agency to provide solutions</p>
+                <div class="section-title text-center mb-60 wow fadeInUp">
+                    <span class="sub-title st-two">Our News & Blog</span>
+                    <h2 class="font-45">Get Every Sigle Update
+                        Latest News & Tips</h2>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="blog-post-item mb-40 wow fadeInUp" data-wow-delay=".25s">
-                    <div class="entry-content">
-                        <a href="#" class="cat-btn">Design</a>
-                        <h3 class="title"><a href="blog-details.html">Everything You Want To Know About</a></h3>
-                        <p>Sit amet consectete adipising elit
-                            wedo eiusmod temeidiunt laboret dolore magna ways</p>
-                        <a href="blog-details.html" class="btn-link">Read More</a>
+        <div class="row justify-content-center">
+            @forelse($blogs as $blog)
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="blog-post-item mb-40 wow fadeInUp" data-wow-delay=".2s">
+                        <div class="post-thumbnail">
+                            <img src="{{asset($blog->fImage)}}" alt="post image">
+                        </div>
+                        <div class="entry-content">
+                            <a href="{{route('blog.details',$blog->id)}}" class="icon-btn"><i class="fas fa-arrow-right"></i></a>
+                            <h4 class="title"><a href="{{route('blog.details',$blog->id)}}">{{$blog->title}}</a></h4>
+                            <p>{!! $blog->fDescription !!} </p>
+                            <div class="post-meta">
+                                <ul>
+                                    <li><span><i class="far fa-calendar-alt"></i><a
+                                                href="#">{{$blog->date}}</a></span></li>
+                                    <li><span><i class="far fa-comments"></i><a href="#">Comment (5)</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="blog-post-item mb-40 wow fadeInUp" data-wow-delay=".30s">
-                    <div class="entry-content">
-                        <a href="#" class="cat-btn">Design</a>
-                        <h3 class="title"><a href="blog-details.html">Designing Better Links For Websites And Emails</a></h3>
-                        <p>Sit amet consectete adipising elit
-                            wedo eiusmod temeidiunt laboret dolore magna ways</p>
-                        <a href="blog-details.html" class="btn-link">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="blog-post-item mb-40 wow fadeInUp" data-wow-delay=".35s">
-                    <div class="entry-content">
-                        <a href="#" class="cat-btn">Design</a>
-                        <h3 class="title"><a href="blog-details.html">Everything You Want To Know About</a></h3>
-                        <p>Sit amet consectete adipising elit
-                            wedo eiusmod temeidiunt laboret dolore magna ways</p>
-                        <a href="blog-details.html" class="btn-link">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="button-box text-center wow fadeInUp">
-                    <a href="blogs.html" class="main-btn arrow-btn">View More News</a>
-                </div>
-            </div>
+            @empty
+            @endforelse
         </div>
     </div>
-</section>
-<!--====== End Blog Section ======-->
+</section><!--====== End Blog Section ======-->
